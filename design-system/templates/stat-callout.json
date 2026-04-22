@@ -1,0 +1,27 @@
+{
+  "$schema": "presentation-kit/template/v1",
+  "id": "stat-callout",
+  "name": "Stat Callout",
+  "description": "Single oversized number + label + optional support text. Use for THE metric — the number you want the audience to remember.",
+  "category": "content",
+  "slots": [
+    { "id": "primaryStat", "type": "display-number", "required": true, "maxChars": 6, "typeScale": "accent-number" },
+    { "id": "label", "type": "text", "required": true, "maxChars": 40, "typeScale": "heading.md" },
+    { "id": "supportText", "type": "text", "required": false, "maxChars": 140, "typeScale": "body.md" }
+  ],
+  "autoLayout": {
+    "direction": "vertical",
+    "padding": { "top": 180, "right": 115, "bottom": 180, "left": 115 },
+    "gap": 24,
+    "align": "center"
+  },
+  "tokens": {
+    "bg": "color.bg.primary",
+    "primaryStat.fg": "color.accent.primary",
+    "primaryStat.type": "accent-number",
+    "label.fg": "color.text.primary",
+    "label.type": "heading.md",
+    "supportText.fg": "color.text.secondary",
+    "supportText.type": "body.md"
+  }
+}

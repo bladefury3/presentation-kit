@@ -1,0 +1,26 @@
+{
+  "$schema": "presentation-kit/template/v1",
+  "id": "image-full-bleed",
+  "name": "Full-Bleed Image",
+  "description": "Edge-to-edge image background with overlay text. For ambient openers, emotional beats, promised-land visualization. Text sits on top in safe-zone with optional gradient scrim.",
+  "category": "structural",
+  "slots": [
+    { "id": "image", "type": "image", "required": true, "description": "Layered image (bg/mid/fg) — text overlay lives above in its own layer" },
+    { "id": "overlayTitle", "type": "text", "required": false, "maxChars": 70, "typeScale": "display.xl" },
+    { "id": "overlayCaption", "type": "text", "required": false, "maxChars": 120, "typeScale": "caption" }
+  ],
+  "autoLayout": {
+    "direction": "vertical",
+    "padding": { "top": 700, "right": 115, "bottom": 50, "left": 115 },
+    "gap": 16,
+    "align": "start"
+  },
+  "tokens": {
+    "bg": "color.bg.primary",
+    "overlayTitle.fg": "color.text.inverse",
+    "overlayTitle.type": "display.xl",
+    "overlayCaption.fg": "color.text.inverse-muted",
+    "overlayCaption.type": "caption",
+    "scrim.fill": "color.bg.scrim"
+  }
+}

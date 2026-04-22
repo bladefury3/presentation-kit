@@ -1,0 +1,28 @@
+{
+  "$schema": "presentation-kit/template/v1",
+  "id": "team",
+  "name": "Team",
+  "description": "Grid of team members. Photo (or initials avatar) + name + role + optional credential. Use for 3-6 people; larger teams compress into a 'team of N from X, Y, Z' text slide.",
+  "category": "content",
+  "slots": [
+    { "id": "actionTitle", "type": "text", "required": true, "maxChars": 70, "typeScale": "heading.lg" },
+    { "id": "members", "type": "list", "required": true, "maxItems": 6, "description": "Array of { name, role, credential?, photo? }" }
+  ],
+  "autoLayout": {
+    "direction": "vertical",
+    "padding": { "top": 85, "right": 115, "bottom": 48, "left": 115 },
+    "gap": 48,
+    "align": "start"
+  },
+  "tokens": {
+    "bg": "color.bg.primary",
+    "actionTitle.fg": "color.text.primary",
+    "actionTitle.type": "heading.lg",
+    "memberName.fg": "color.text.primary",
+    "memberName.type": "heading.sm",
+    "memberRole.fg": "color.text.secondary",
+    "memberRole.type": "body.sm",
+    "memberCredential.fg": "color.accent.primary",
+    "memberCredential.type": "caption"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "$schema": "presentation-kit/template/v1",
+  "id": "quote",
+  "name": "Pull Quote",
+  "description": "Large centered quote with attribution. For customer voices, analyst validation, founder quotes. Emotional weight — use sparingly.",
+  "category": "content",
+  "slots": [
+    { "id": "quoteText", "type": "quote", "required": true, "maxChars": 240, "typeScale": "display.md" },
+    { "id": "attribution", "type": "text", "required": true, "maxChars": 60, "typeScale": "heading.sm" },
+    { "id": "attributionRole", "type": "text", "required": false, "maxChars": 60, "typeScale": "caption" }
+  ],
+  "autoLayout": {
+    "direction": "vertical",
+    "padding": { "top": 180, "right": 240, "bottom": 180, "left": 240 },
+    "gap": 48,
+    "align": "center"
+  },
+  "tokens": {
+    "bg": "color.bg.primary",
+    "quoteText.fg": "color.text.primary",
+    "quoteText.type": "display.md",
+    "attribution.fg": "color.accent.primary",
+    "attribution.type": "heading.sm",
+    "attributionRole.fg": "color.text.secondary",
+    "attributionRole.type": "caption"
+  }
+}

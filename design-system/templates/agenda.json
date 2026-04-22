@@ -1,0 +1,28 @@
+{
+  "$schema": "presentation-kit/template/v1",
+  "id": "agenda",
+  "name": "Agenda",
+  "description": "Numbered section list. What the presenter will cover. Use early in long decks (>20 slides) or when the audience needs orientation.",
+  "category": "structural",
+  "slots": [
+    { "id": "actionTitle", "type": "text", "required": true, "maxChars": 30, "typeScale": "heading.lg" },
+    { "id": "sections", "type": "list", "required": true, "maxItems": 6, "description": "Array of { number, label, duration? }" }
+  ],
+  "autoLayout": {
+    "direction": "vertical",
+    "padding": { "top": 120, "right": 115, "bottom": 48, "left": 115 },
+    "gap": 48,
+    "align": "start"
+  },
+  "tokens": {
+    "bg": "color.bg.primary",
+    "actionTitle.fg": "color.text.primary",
+    "actionTitle.type": "heading.lg",
+    "sectionNumber.fg": "color.accent.primary",
+    "sectionNumber.type": "display.md",
+    "sectionLabel.fg": "color.text.primary",
+    "sectionLabel.type": "heading.md",
+    "sectionDuration.fg": "color.text.secondary",
+    "sectionDuration.type": "caption"
+  }
+}

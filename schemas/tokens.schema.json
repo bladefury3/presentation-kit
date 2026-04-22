@@ -1,0 +1,73 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "presentation-kit/tokens/v1",
+  "title": "Presentation Kit Tokens",
+  "description": "Design tokens for a presentation. W3C Design Tokens format with Figma extensions. Ported from design-kit.",
+  "type": "object",
+  "required": ["$schema", "$metadata"],
+  "properties": {
+    "$schema": { "type": "string", "const": "presentation-kit/tokens/v1" },
+    "$metadata": {
+      "type": "object",
+      "required": ["source", "extractedAt"],
+      "properties": {
+        "name": { "type": "string" },
+        "source": { "type": "string", "enum": ["figma", "brand-interview", "imported"] },
+        "extractedAt": { "type": "string", "format": "date-time" },
+        "figmaFile": { "type": "string" },
+        "collections": { "type": "array", "items": { "type": "string" } },
+        "modes": { "type": "array", "items": { "type": "string" } },
+        "modeCollections": {
+          "type": "object",
+          "description": "Maps collection name → { collectionId, modes: { modeName → modeId } }",
+          "additionalProperties": true
+        }
+      }
+    },
+    "color": { "$ref": "#/$defs/tokenGroup" },
+    "spacing": { "$ref": "#/$defs/tokenGroup" },
+    "borderRadius": { "$ref": "#/$defs/tokenGroup" },
+    "typography": { "$ref": "#/$defs/tokenGroup" },
+    "shadow": { "$ref": "#/$defs/tokenGroup" },
+    "opacity": { "$ref": "#/$defs/tokenGroup" }
+  },
+  "additionalProperties": { "$ref": "#/$defs/tokenGroup" },
+  "$defs": {
+    "tokenGroup": {
+      "type": "object",
+      "additionalProperties": {
+        "oneOf": [
+          { "$ref": "#/$defs/tokenValue" },
+          { "$ref": "#/$defs/tokenGroup" }
+        ]
+      }
+    },
+    "tokenValue": {
+      "type": "object",
+      "required": ["$value", "$type"],
+      "properties": {
+        "$value": {},
+        "$type": { "type": "string" },
+        "$description": { "type": "string" },
+        "$extensions": {
+          "type": "object",
+          "properties": {
+            "figma": {
+              "type": "object",
+              "properties": {
+                "key": {
+                  "type": "string",
+                  "pattern": "^[a-f0-9]{40}$",
+                  "description": "40-char hex for figma.variables.importVariableByKeyAsync()"
+                },
+                "styleId": { "type": "string" },
+                "collectionId": { "type": "string" },
+                "modeId": { "type": "string" }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

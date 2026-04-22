@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "presentation-kit/arc/v1",
+  "title": "Presentation Kit Arc",
+  "description": "Narrative arc mapped to slide beats. Produced by /arc, consumed by /plan-deck and /narrative-auditor.",
+  "type": "object",
+  "required": ["$schema", "type", "beats"],
+  "properties": {
+    "$schema": { "type": "string", "const": "presentation-kit/arc/v1" },
+    "type": {
+      "type": "string",
+      "enum": ["scqa", "narrative", "sparkline", "10-20-30", "other"],
+      "description": "Which arc. 'other' requires a custom beats definition."
+    },
+    "beats": {
+      "type": "array",
+      "description": "Ordered list of story beats. Every beat must have at least one slide mapped.",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "slides"],
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Beat identifier. For SCQA: 'situation', 'complication', 'question', 'answer', 'pillar-1', 'pillar-2', 'pillar-3', 'ask'. For narrative: 'enemy', 'promised-land', 'obstacles', 'magic-gift-N', 'proof', 'ask'. Etc."
+          },
+          "label": {
+            "type": "string",
+            "description": "Human-readable beat label (for narrative-audit.md output)"
+          },
+          "slides": {
+            "type": "array",
+            "items": { "type": "integer", "minimum": 1 },
+            "description": "1-based slide indexes covering this beat. May overlap with adjacent beats for transition slides.",
+            "minItems": 1
+          }
+        }
+      }
+    },
+    "emphasisCurve": {
+      "type": "array",
+      "description": "Intended emphasis level (0-1) per slide, used to guide transition strength and visual weight. Length = total slides.",
+      "items": { "type": "number", "minimum": 0, "maximum": 1 }
+    },
+    "constraints": {
+      "type": "object",
+      "description": "Hard constraints enforced by the arc. For 10-20-30: slide count = 10, duration ≤ 20 min, min font size = 30pt.",
+      "properties": {
+        "slideCount": { "type": "integer" },
+        "minFontPt": { "type": "integer" },
+        "maxDurationMin": { "type": "integer" }
+      }
+    }
+  }
+}

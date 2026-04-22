@@ -1,0 +1,33 @@
+{
+  "$schema": "presentation-kit/template/v1",
+  "id": "comparison",
+  "name": "Comparison",
+  "description": "Two panels with parallel structure. One panel visually differentiated (accent bar, darker bg, or highlight border) to signal 'this one'. For pros vs cons, status quo vs future, before vs after.",
+  "category": "content",
+  "slots": [
+    { "id": "actionTitle", "type": "text", "required": true, "maxChars": 70, "typeScale": "heading.lg" },
+    { "id": "leftHeader", "type": "text", "required": true, "maxChars": 30, "typeScale": "heading.md" },
+    { "id": "leftItems", "type": "list", "required": true, "maxItems": 5 },
+    { "id": "rightHeader", "type": "text", "required": true, "maxChars": 30, "typeScale": "heading.md" },
+    { "id": "rightItems", "type": "list", "required": true, "maxItems": 5 },
+    { "id": "emphasis", "type": "text", "required": false, "maxChars": 10, "description": "Which side is 'right' — 'left' or 'right'. Drives visual weight." }
+  ],
+  "autoLayout": {
+    "direction": "vertical",
+    "padding": { "top": 85, "right": 115, "bottom": 48, "left": 115 },
+    "gap": 48,
+    "align": "start"
+  },
+  "tokens": {
+    "bg": "color.bg.primary",
+    "actionTitle.fg": "color.text.primary",
+    "actionTitle.type": "heading.lg",
+    "panel.bg": "color.surface.card",
+    "emphasisPanel.bg": "color.surface.emphasis",
+    "emphasisPanel.stroke": "color.accent.primary",
+    "panelHeader.fg": "color.text.primary",
+    "panelHeader.type": "heading.md",
+    "listItem.fg": "color.text.primary",
+    "listItem.type": "body.md"
+  }
+}

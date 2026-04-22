@@ -1,0 +1,30 @@
+{
+  "$schema": "presentation-kit/template/v1",
+  "id": "2-column",
+  "name": "Two Column",
+  "description": "Two parallel content blocks. For text+visual pairs, before/after, or simple comparisons. Action title spans the top.",
+  "category": "content",
+  "slots": [
+    { "id": "actionTitle", "type": "text", "required": true, "maxChars": 70, "typeScale": "heading.lg" },
+    { "id": "leftHeading", "type": "text", "required": false, "maxChars": 30, "typeScale": "heading.sm" },
+    { "id": "leftBody", "type": "text", "required": true, "maxChars": 180, "typeScale": "body.md" },
+    { "id": "rightContent", "type": "text", "required": true, "maxChars": 180, "typeScale": "body.md" }
+  ],
+  "autoLayout": {
+    "direction": "vertical",
+    "padding": { "top": 85, "right": 115, "bottom": 48, "left": 115 },
+    "gap": 48,
+    "align": "start"
+  },
+  "tokens": {
+    "bg": "color.bg.primary",
+    "actionTitle.fg": "color.text.primary",
+    "actionTitle.type": "heading.lg",
+    "leftHeading.fg": "color.accent.primary",
+    "leftHeading.type": "heading.sm",
+    "leftBody.fg": "color.text.primary",
+    "leftBody.type": "body.md",
+    "rightContent.fg": "color.text.primary",
+    "rightContent.type": "body.md"
+  }
+}

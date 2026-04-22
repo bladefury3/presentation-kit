@@ -1,0 +1,27 @@
+{
+  "name": "presentation-kit",
+  "version": "0.1.0",
+  "description": "AI-powered presentation skills for Claude Code + Figma Slides. Research to outline to deck with narrative arcs, speaker notes, and rehearsal.",
+  "author": "Sidharath Chhatani",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bladefury3/presentation-kit.git"
+  },
+  "homepage": "https://github.com/bladefury3/presentation-kit#readme",
+  "keywords": [
+    "presentation",
+    "figma-slides",
+    "claude-code",
+    "slides",
+    "mcp",
+    "ai-presentation",
+    "narrative-arc",
+    "storytelling",
+    "speaker-notes"
+  ],
+  "scripts": {
+    "setup": "./setup",
+    "lint": "./lint-skills.sh"
+  }
+}

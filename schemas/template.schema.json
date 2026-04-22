@@ -1,0 +1,80 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "presentation-kit/template/v1",
+  "title": "Presentation Kit Template",
+  "description": "Slide template. Data-driven — no per-template code. The slot-fill engine in build-helpers/template-instantiate.js reads this to produce Plugin API ops.",
+  "type": "object",
+  "required": ["$schema", "id", "name", "slots"],
+  "properties": {
+    "$schema": { "type": "string", "const": "presentation-kit/template/v1" },
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9-]+$",
+      "description": "Kebab-case identifier. Used as key in deck.json slides[].template."
+    },
+    "name": { "type": "string", "maxLength": 50 },
+    "description": { "type": "string", "maxLength": 240 },
+    "category": {
+      "type": "string",
+      "enum": ["structural", "content", "data", "transition", "closing"],
+      "description": "Used for discoverability in /plan-deck."
+    },
+    "slots": {
+      "type": "array",
+      "description": "Content slots this template fills. Keys become slide.content.<slotId> paths.",
+      "items": {
+        "type": "object",
+        "required": ["id", "type"],
+        "properties": {
+          "id": { "type": "string", "pattern": "^[a-zA-Z][a-zA-Z0-9]*$" },
+          "type": {
+            "type": "string",
+            "enum": ["text", "display-number", "image", "chart", "icon", "list", "quote", "stat", "timeline-event"]
+          },
+          "required": { "type": "boolean", "default": false },
+          "maxChars": { "type": "integer", "minimum": 1 },
+          "maxItems": { "type": "integer", "minimum": 1, "description": "For list/timeline slots" },
+          "typeScale": {
+            "type": "string",
+            "description": "Typography role from typography.json (e.g. 'display.xxl', 'body.md', 'caption')"
+          }
+        }
+      }
+    },
+    "autoLayout": {
+      "type": "object",
+      "description": "Figma Slides auto-layout config applied to the root frame when instantiating.",
+      "properties": {
+        "direction": { "type": "string", "enum": ["horizontal", "vertical"] },
+        "padding": {
+          "oneOf": [
+            { "type": "integer", "minimum": 0 },
+            { "type": "object", "properties": { "top": { "type": "integer" }, "right": { "type": "integer" }, "bottom": { "type": "integer" }, "left": { "type": "integer" } } }
+          ]
+        },
+        "gap": { "type": "integer", "minimum": 0 },
+        "align": { "type": "string", "enum": ["start", "center", "end", "stretch", "space-between"] },
+        "wrap": { "type": "boolean", "default": false }
+      }
+    },
+    "tokens": {
+      "type": "object",
+      "description": "Default token bindings for this template. Slide instances may override.",
+      "additionalProperties": { "type": "string" }
+    },
+    "figmaMaster": {
+      "type": "object",
+      "description": "Reference to a Figma component that masters this template, if one exists. Populated by /setup-templates.",
+      "properties": {
+        "nodeId": { "type": "string", "description": "Session-scoped. Re-resolved per session." },
+        "variantKey": { "type": "string", "description": "40-char hex for figma_instantiate_component" },
+        "componentSetKey": { "type": "string" }
+      }
+    },
+    "chartEngine": {
+      "type": "string",
+      "enum": ["d3-data-table", "d3-flow-diagram", "d3-comparison-columns", "d3-bar-chart", "d3-gantt-timeline", "d3-donut-chart", "none"],
+      "description": "For chart templates only — which D3 pattern in build-helpers/d3-patterns/ to use."
+    }
+  }
+}

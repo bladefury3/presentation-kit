@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "presentation-kit/deck/v1",
+  "title": "Presentation Kit Deck",
+  "description": "Canonical compiled deck. Produced by /plan-deck from outline.md + arc.json + aesthetic.json + research.json. Consumed by /build.",
+  "type": "object",
+  "required": ["$schema", "$metadata", "slides"],
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "const": "presentation-kit/deck/v1"
+    },
+    "$metadata": {
+      "type": "object",
+      "required": ["title", "audience", "duration", "arc", "createdAt"],
+      "properties": {
+        "title": { "type": "string", "maxLength": 120 },
+        "audience": { "type": "string", "maxLength": 200, "description": "Who this deck is for" },
+        "duration": {
+          "type": "string",
+          "description": "Target presentation length (e.g. '10min', '20min', '45min')",
+          "pattern": "^\\d+\\s*(m|min|mins|minutes|s|sec|seconds)$"
+        },
+        "arc": {
+          "type": "string",
+          "enum": ["scqa", "narrative", "sparkline", "10-20-30", "other"]
+        },
+        "aesthetic": {
+          "type": "string",
+          "description": "The aesthetic direction committed via /style-preview (e.g. 'editorial-serif', 'technical-mono', 'warm-neutrals')"
+        },
+        "brandFile": {
+          "type": "string",
+          "description": "Path to the Figma Slides file URL or ID"
+        },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      }
+    },
+    "slides": {
+      "type": "array",
+      "description": "Ordered list of per-slide specs. Each entry is a $ref to slides/<nn>.json or an inline slide object.",
+      "items": {
+        "oneOf": [
+          { "type": "object", "required": ["$ref"], "properties": { "$ref": { "type": "string" } } },
+          { "$ref": "slide.schema.json" }
+        ]
+      }
+    },
+    "tokens": {
+      "type": "string",
+      "description": "Path to tokens.json — e.g. 'design-system/tokens.json'"
+    },
+    "templates": {
+      "type": "string",
+      "description": "Path to templates index — e.g. 'design-system/templates/index.json'"
+    },
+    "research": {
+      "type": "string",
+      "description": "Path to research.json — e.g. 'plans/<deck>/research.json'"
+    }
+  }
+}

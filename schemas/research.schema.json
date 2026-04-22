@@ -1,0 +1,71 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "presentation-kit/research/v1",
+  "title": "Presentation Kit Research",
+  "description": "Cited claim map. Produced by /research. Referenced from slide body copy and speaker notes via sources[] entries like 'research.json#claim-17'.",
+  "type": "object",
+  "required": ["$schema", "$metadata", "claims"],
+  "properties": {
+    "$schema": { "type": "string", "const": "presentation-kit/research/v1" },
+    "$metadata": {
+      "type": "object",
+      "required": ["createdAt", "deck"],
+      "properties": {
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" },
+        "deck": { "type": "string", "description": "Deck slug this research belongs to" },
+        "queries": {
+          "type": "array",
+          "description": "Search queries run to produce this research",
+          "items": { "type": "string" }
+        }
+      }
+    },
+    "claims": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "text", "source", "retrievedAt"],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^claim-\\d+$",
+            "description": "Stable ID referenced from slides via 'research.json#claim-NN'"
+          },
+          "text": {
+            "type": "string",
+            "maxLength": 500,
+            "description": "The claim as it will appear (or be paraphrased) in the deck"
+          },
+          "source": {
+            "type": "string",
+            "description": "URL, file path, or named source (e.g. 'interview:2026-03-15 Jane Smith')"
+          },
+          "sourceType": {
+            "type": "string",
+            "enum": ["web", "document", "interview", "internal-data", "figma-file", "user-provided"]
+          },
+          "quote": {
+            "type": "string",
+            "maxLength": 800,
+            "description": "Verbatim supporting quote from the source. Optional for internal-data."
+          },
+          "retrievedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "confidence": {
+            "type": "string",
+            "enum": ["high", "medium", "low"],
+            "description": "How confident the researcher is. Flagged for verification if 'low'."
+          },
+          "tags": {
+            "type": "array",
+            "items": { "type": "string" },
+            "description": "Topic tags for retrieval (e.g. 'market-size', 'churn', 'team')"
+          }
+        }
+      }
+    }
+  }
+}

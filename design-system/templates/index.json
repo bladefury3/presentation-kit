@@ -1,0 +1,127 @@
+{
+  "$schema": "presentation-kit/templates-index/v1",
+  "$metadata": {
+    "version": "0.1.0",
+    "description": "Registry of slide templates shipped with presentation-kit. Extensible — drop a new <id>.json file in this directory and re-run /setup-templates to register.",
+    "updatedAt": "2026-04-22"
+  },
+  "templates": [
+    {
+      "id": "title",
+      "name": "Title",
+      "category": "structural",
+      "file": "title.json",
+      "description": "Opening slide. Oversized title + optional subtitle + brand mark.",
+      "typicalBeats": ["opening"],
+      "slotCount": 3
+    },
+    {
+      "id": "section-divider",
+      "name": "Section Divider",
+      "category": "transition",
+      "file": "section-divider.json",
+      "description": "Between-section slide. Section label + short phrase + accent mark. Signals arc transitions.",
+      "typicalBeats": ["transition", "beat-marker"],
+      "slotCount": 2
+    },
+    {
+      "id": "stat-callout",
+      "name": "Stat Callout",
+      "category": "content",
+      "file": "stat-callout.json",
+      "description": "Single oversized number + label + optional support text. For the key metric slide.",
+      "typicalBeats": ["evidence", "proof", "promised-land"],
+      "slotCount": 3
+    },
+    {
+      "id": "2-column",
+      "name": "Two Column",
+      "category": "content",
+      "file": "2-column.json",
+      "description": "Two parallel content blocks. For comparisons, before/after, or text+visual pairs.",
+      "typicalBeats": ["evidence", "magic-gift", "what-is-what-could-be"],
+      "slotCount": 4
+    },
+    {
+      "id": "3-column",
+      "name": "Three Column",
+      "category": "content",
+      "file": "3-column.json",
+      "description": "Three parallel blocks. For feature triples, step sequences, category cards.",
+      "typicalBeats": ["magic-gifts", "pillars"],
+      "slotCount": 6
+    },
+    {
+      "id": "comparison",
+      "name": "Comparison",
+      "category": "content",
+      "file": "comparison.json",
+      "description": "Two panels with parallel structure + visual differentiation (one highlighted).",
+      "typicalBeats": ["winners-vs-losers", "what-is-what-could-be", "before-after"],
+      "slotCount": 6
+    },
+    {
+      "id": "timeline",
+      "name": "Timeline",
+      "category": "data",
+      "file": "timeline.json",
+      "description": "Horizontal timeline with milestones, dates, and event labels.",
+      "typicalBeats": ["history", "roadmap", "projections"],
+      "slotCount": 2
+    },
+    {
+      "id": "quote",
+      "name": "Pull Quote",
+      "category": "content",
+      "file": "quote.json",
+      "description": "Large centered quote with attribution. For customer voices, external validation.",
+      "typicalBeats": ["proof", "evidence"],
+      "slotCount": 3
+    },
+    {
+      "id": "team",
+      "name": "Team",
+      "category": "content",
+      "file": "team.json",
+      "description": "Grid of team members with photo, name, role, optional credential.",
+      "typicalBeats": ["team", "credentials"],
+      "slotCount": 2
+    },
+    {
+      "id": "image-full-bleed",
+      "name": "Full-Bleed Image",
+      "category": "structural",
+      "file": "image-full-bleed.json",
+      "description": "Edge-to-edge image with overlay text. For ambient openers, emotional beats.",
+      "typicalBeats": ["opening", "promised-land", "emotional-anchor"],
+      "slotCount": 3
+    },
+    {
+      "id": "chart",
+      "name": "Chart",
+      "category": "data",
+      "file": "chart.json",
+      "description": "Data visualization via D3 pattern (bar / line / donut / flow / gantt / table). Delegates to build-helpers/d3-patterns/.",
+      "typicalBeats": ["evidence", "projections"],
+      "slotCount": 4
+    },
+    {
+      "id": "agenda",
+      "name": "Agenda",
+      "category": "structural",
+      "file": "agenda.json",
+      "description": "Numbered section list. What the presenter will cover.",
+      "typicalBeats": ["opening", "orientation"],
+      "slotCount": 2
+    },
+    {
+      "id": "closing-cta",
+      "name": "Closing / CTA",
+      "category": "closing",
+      "file": "closing-cta.json",
+      "description": "Final slide with the single action ask. Minimal noise, maximum focus.",
+      "typicalBeats": ["ask", "new-bliss", "call-to-action"],
+      "slotCount": 3
+    }
+  ]
+}

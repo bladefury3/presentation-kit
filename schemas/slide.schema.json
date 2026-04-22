@@ -1,0 +1,81 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "presentation-kit/slide/v1",
+  "title": "Presentation Kit Slide",
+  "description": "Per-slide spec. Produced by /plan-deck, consumed by /build, mutated by /revise-deck, /image, /motion, /notes.",
+  "type": "object",
+  "required": ["$schema", "id", "index", "actionTitle", "template", "beat"],
+  "properties": {
+    "$schema": { "type": "string", "const": "presentation-kit/slide/v1" },
+    "id": { "type": "string", "pattern": "^slide-\\d+$" },
+    "index": { "type": "integer", "minimum": 1, "description": "1-based slide order" },
+    "actionTitle": {
+      "type": "string",
+      "maxLength": 120,
+      "description": "Full-sentence takeaway. Not a topic label. Enforced by action-title-lint."
+    },
+    "template": {
+      "type": "string",
+      "description": "ID from design-system/templates/index.json (e.g. 'stat-callout', '2-column', 'chart')"
+    },
+    "beat": {
+      "type": "string",
+      "description": "Arc beat this slide fulfills. Must exist in arc.json#/beats[].id"
+    },
+    "content": {
+      "type": "object",
+      "description": "Template-specific slot values. Shape depends on template.slots.",
+      "additionalProperties": true
+    },
+    "tokens": {
+      "type": "object",
+      "description": "Token references for this slide's visual properties. Keys are slide-scoped roles (bg, fg, typeScale, accent), values are token paths.",
+      "additionalProperties": { "type": "string" }
+    },
+    "notes": {
+      "type": "string",
+      "description": "Speaker notes. Applied via figma_execute → slide.speakerNotes."
+    },
+    "transition": {
+      "type": "object",
+      "properties": {
+        "type": { "type": "string", "enum": ["dissolve", "push", "slide-in", "slide-out", "move-in", "move-out", "smart-animate", "none"] },
+        "direction": { "type": "string", "enum": ["left", "right", "top", "bottom"] },
+        "duration": { "type": "integer", "minimum": 0, "maximum": 2000, "description": "Milliseconds" },
+        "easing": { "type": "string", "enum": ["linear", "ease-in", "ease-out", "ease-in-out", "gentle", "quick", "bouncy", "slow"] }
+      }
+    },
+    "motion": {
+      "type": "array",
+      "description": "Intra-slide motion specs. Choreographed via duplicate-slide + smart-animate.",
+      "items": {
+        "type": "object",
+        "required": ["element", "effect"],
+        "properties": {
+          "element": { "type": "string", "description": "Slot name or node ID" },
+          "effect": { "type": "string", "description": "e.g. 'fade-in', 'count-up', 'slide-from-left'" },
+          "from": {},
+          "to": {},
+          "duration": { "type": "integer" }
+        }
+      }
+    },
+    "sources": {
+      "type": "array",
+      "description": "Claim citations. Format: 'research.json#claim-NN'. Every body claim must have at least one source.",
+      "items": {
+        "type": "string",
+        "pattern": "^research\\.json#claim-\\d+$"
+      }
+    },
+    "nodeId": {
+      "type": ["string", "null"],
+      "description": "Figma Slides node ID. Populated by /build; session-scoped. Null before build, stale across sessions."
+    },
+    "skipped": {
+      "type": "boolean",
+      "default": false,
+      "description": "If true, slide exists but is skipped in presenter mode (figma_skip_slide)"
+    }
+  }
+}

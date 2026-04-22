@@ -1,0 +1,32 @@
+{
+  "$schema": "presentation-kit/template/v1",
+  "id": "3-column",
+  "name": "Three Column",
+  "description": "Three parallel content blocks. For feature triples, step sequences, or category cards. Only use when the three items are genuinely parallel.",
+  "category": "content",
+  "slots": [
+    { "id": "actionTitle", "type": "text", "required": true, "maxChars": 70, "typeScale": "heading.lg" },
+    { "id": "card1Title", "type": "text", "required": true, "maxChars": 30, "typeScale": "heading.sm" },
+    { "id": "card1Body", "type": "text", "required": true, "maxChars": 120, "typeScale": "body.sm" },
+    { "id": "card2Title", "type": "text", "required": true, "maxChars": 30, "typeScale": "heading.sm" },
+    { "id": "card2Body", "type": "text", "required": true, "maxChars": 120, "typeScale": "body.sm" },
+    { "id": "card3Title", "type": "text", "required": true, "maxChars": 30, "typeScale": "heading.sm" },
+    { "id": "card3Body", "type": "text", "required": true, "maxChars": 120, "typeScale": "body.sm" }
+  ],
+  "autoLayout": {
+    "direction": "vertical",
+    "padding": { "top": 85, "right": 115, "bottom": 48, "left": 115 },
+    "gap": 48,
+    "align": "start"
+  },
+  "tokens": {
+    "bg": "color.bg.primary",
+    "actionTitle.fg": "color.text.primary",
+    "actionTitle.type": "heading.lg",
+    "card.bg": "color.surface.card",
+    "cardTitle.fg": "color.accent.primary",
+    "cardTitle.type": "heading.sm",
+    "cardBody.fg": "color.text.primary",
+    "cardBody.type": "body.sm"
+  }
+}

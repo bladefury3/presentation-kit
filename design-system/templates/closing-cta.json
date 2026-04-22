@@ -1,0 +1,27 @@
+{
+  "$schema": "presentation-kit/template/v1",
+  "id": "closing-cta",
+  "name": "Closing / CTA",
+  "description": "Final slide with the single action ask. Minimal elements: THE ask + optional supporting line + contact. No bullets, no list of next steps — one action.",
+  "category": "closing",
+  "slots": [
+    { "id": "ask", "type": "text", "required": true, "maxChars": 60, "typeScale": "display.xl" },
+    { "id": "supportLine", "type": "text", "required": false, "maxChars": 80, "typeScale": "heading.md" },
+    { "id": "contact", "type": "text", "required": false, "maxChars": 50, "typeScale": "body.md" }
+  ],
+  "autoLayout": {
+    "direction": "vertical",
+    "padding": { "top": 280, "right": 115, "bottom": 280, "left": 115 },
+    "gap": 32,
+    "align": "start"
+  },
+  "tokens": {
+    "bg": "color.bg.primary",
+    "ask.fg": "color.accent.primary",
+    "ask.type": "display.xl",
+    "supportLine.fg": "color.text.primary",
+    "supportLine.type": "heading.md",
+    "contact.fg": "color.text.secondary",
+    "contact.type": "body.md"
+  }
+}

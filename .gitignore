@@ -1,0 +1,28 @@
+# Generated output (recreated by running skills)
+design-system/brand.json
+design-system/tokens.json
+design-system/typography.json
+design-system/motion.json
+design-system/color-modes.json
+design-system/content-voice.md
+design-system/slide-file-structure.md
+design-system/image-provider.json
+design-system/decisions.md
+design-system/cleanup-log.md
+plans/
+benchmarks/results/
+
+# Template registry is shipped — do NOT ignore design-system/templates/
+!design-system/templates/
+
+# Editor / OS
+.claude/
+node_modules/
+.DS_Store
+*.swp
+*.swo
+*~
+.gstack/
+
+# Smoke test artifacts
+smoke-test-output/

@@ -1,0 +1,24 @@
+{
+  "$schema": "presentation-kit/template/v1",
+  "id": "section-divider",
+  "name": "Section Divider",
+  "description": "Between-section slide. Accent-colored section label + short phrase. Signals arc beat transitions (Promised Land → Obstacles, etc.).",
+  "category": "transition",
+  "slots": [
+    { "id": "sectionLabel", "type": "text", "required": true, "maxChars": 25, "typeScale": "section-label" },
+    { "id": "actionTitle", "type": "text", "required": true, "maxChars": 70, "typeScale": "display.xl" }
+  ],
+  "autoLayout": {
+    "direction": "vertical",
+    "padding": { "top": 250, "right": 115, "bottom": 250, "left": 115 },
+    "gap": 48,
+    "align": "start"
+  },
+  "tokens": {
+    "bg": "color.bg.emphasis",
+    "sectionLabel.fg": "color.accent.primary",
+    "sectionLabel.type": "section-label",
+    "actionTitle.fg": "color.text.primary",
+    "actionTitle.type": "display.xl"
+  }
+}

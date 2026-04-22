@@ -1,0 +1,30 @@
+{
+  "$schema": "presentation-kit/template/v1",
+  "id": "timeline",
+  "name": "Timeline",
+  "description": "Horizontal timeline with milestones and dates. Use a D3 gantt-timeline pattern for complex cases; simple horizontal line + dot markers for 3-5 milestones.",
+  "category": "data",
+  "chartEngine": "d3-gantt-timeline",
+  "slots": [
+    { "id": "actionTitle", "type": "text", "required": true, "maxChars": 70, "typeScale": "heading.lg" },
+    { "id": "milestones", "type": "timeline-event", "required": true, "maxItems": 8, "description": "Array of { date, label, description?, isCurrent? }" }
+  ],
+  "autoLayout": {
+    "direction": "vertical",
+    "padding": { "top": 85, "right": 115, "bottom": 48, "left": 115 },
+    "gap": 64,
+    "align": "start"
+  },
+  "tokens": {
+    "bg": "color.bg.primary",
+    "actionTitle.fg": "color.text.primary",
+    "actionTitle.type": "heading.lg",
+    "timeline.line": "color.border.muted",
+    "timeline.dot": "color.accent.primary",
+    "timeline.dotCurrent": "color.accent.primary",
+    "milestoneDate.fg": "color.text.secondary",
+    "milestoneDate.type": "caption",
+    "milestoneLabel.fg": "color.text.primary",
+    "milestoneLabel.type": "heading.sm"
+  }
+}

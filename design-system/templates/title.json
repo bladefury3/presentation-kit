@@ -1,0 +1,25 @@
+{
+  "$schema": "presentation-kit/template/v1",
+  "id": "title",
+  "name": "Title",
+  "description": "Opening slide. Oversized action title + optional subtitle + brand mark. Sets aesthetic tone for the deck.",
+  "category": "structural",
+  "slots": [
+    { "id": "actionTitle", "type": "text", "required": true, "maxChars": 70, "typeScale": "display.xxl" },
+    { "id": "subtitle", "type": "text", "required": false, "maxChars": 120, "typeScale": "heading.md" },
+    { "id": "brandMark", "type": "image", "required": false }
+  ],
+  "autoLayout": {
+    "direction": "vertical",
+    "padding": { "top": 200, "right": 115, "bottom": 200, "left": 115 },
+    "gap": 32,
+    "align": "start"
+  },
+  "tokens": {
+    "bg": "color.bg.primary",
+    "actionTitle.fg": "color.text.primary",
+    "actionTitle.type": "display.xxl",
+    "subtitle.fg": "color.text.secondary",
+    "subtitle.type": "heading.md"
+  }
+}

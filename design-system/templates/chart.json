@@ -1,0 +1,30 @@
+{
+  "$schema": "presentation-kit/template/v1",
+  "id": "chart",
+  "name": "Chart",
+  "description": "Data visualization. Delegates to a D3 pattern in build-helpers/d3-patterns/ based on chartEngine field. Slot-level data drives the chart; text stays editable if fonts align with Figma.",
+  "category": "data",
+  "chartEngine": "d3-bar-chart",
+  "slots": [
+    { "id": "actionTitle", "type": "text", "required": true, "maxChars": 70, "typeScale": "heading.lg" },
+    { "id": "chartData", "type": "chart", "required": true, "description": "Pattern-specific data array. See build-helpers/d3-patterns/<pattern>.js for shape." },
+    { "id": "chartEngine", "type": "text", "required": true, "description": "One of: d3-data-table, d3-flow-diagram, d3-comparison-columns, d3-bar-chart, d3-gantt-timeline, d3-donut-chart" },
+    { "id": "caption", "type": "text", "required": false, "maxChars": 120, "typeScale": "caption" }
+  ],
+  "autoLayout": {
+    "direction": "vertical",
+    "padding": { "top": 85, "right": 115, "bottom": 48, "left": 115 },
+    "gap": 48,
+    "align": "start"
+  },
+  "tokens": {
+    "bg": "color.bg.primary",
+    "actionTitle.fg": "color.text.primary",
+    "actionTitle.type": "heading.lg",
+    "chart.fg": "color.text.primary",
+    "chart.accent": "color.accent.primary",
+    "chart.muted": "color.text.muted",
+    "caption.fg": "color.text.secondary",
+    "caption.type": "caption"
+  }
+}
