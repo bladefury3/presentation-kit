@@ -36,6 +36,16 @@ Format loosely follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 - **lint-skills.sh:** awk tool-extraction bug that caused `sub()` to mutate `$0`, letting the subsequent reset rule fire on the mutated line — only the first tool in `allowed-tools` was being validated. Now captures the full list honestly. Added `Glob` + `Grep` to the valid-tool allowlist (both are standard Claude Code tools).
 
-### Planned — Phase 2 (Rich + Ship)
+### Added — Phase 2 (Rich + Ship)
 
-5 skills: `image`, `motion`, `notes`, `rehearse`, `handoff`.
+5 skills that take a Phase-1 skeleton deck to a rehearsed, audited, shareable bundle:
+
+- **`/image`** — Per-slide image pipeline: brief → generate via external provider (OpenAI `gpt-image-1` / Gemini Imagen / Replicate SDXL) → `--layered` decomposes into bg/mid/fg PNGs → apply via `figma_set_image_fill` as separate editable Figma layers (Canva Magic Layers pattern). Provider config in `design-system/image-provider.json`.
+- **`/motion`** — Slide transitions + choreography + audit. Three modes: `--transitions` (apply per-slide from `deck.json`), `--choreograph` (build cross-slide smart-animate sequences by duplicating a slide and shifting one element), `--audit` (flag missing / excessive / emphasis-mismatched motion).
+- **`/notes`** — Speaker notes via the `figma_execute` escape hatch. Four modes: `--generate` (claim + evidence + transition + citations), `--timing` (`[~Xs]` markers distributed across arc emphasis curve), `--qa-prep` (anticipated Q&A for high-emphasis slides), `--coach` (flag long sentences, fillers, unpronounceable acronyms, missing citations read aloud).
+- **`/rehearse`** — Interactive rehearsal coach. `--listen` (TTS reads notes at target pace via macOS `say`), `--speak` (presenter speaks, skill captures + transcribes via whisper and times), `--both`. Produces per-take reports + a final readiness score (5 sub-dimensions: pacing, fillers, citations, clarity, emotional arc) + Q&A readiness check. Parity with Copilot Speaker Coach, shipped as a Claude skill.
+- **`/handoff`** — Ship-it workflow. Audits (design + a11y) → parallel QA (4 Agent subagents scoring narrative / design / content / a11y 0–10 each) → composite gate at 8.0 → healing loop (≤ 3 iterations with surgical fixes via `figma_execute`) → screenshot sweep → export checklist → shareable bundle (`plans/<slug>/handoff/` with README, deck links, screenshots, notes, bibliography, QA report).
+
+### Fixed
+
+- `/motion` and `/handoff` — added `mcp__figma-console__figma_set_slides_view_mode` to allowed-tools (both call it for grid-view spot-checks).
