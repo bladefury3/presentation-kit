@@ -22,7 +22,7 @@ Turn a brief into a defensible deck: research → outline → narrative arc → 
 
 | Command | What it does |
 |---|---|
-| `/setup` | Interviews brand identity → writes tokens, typography, motion, color-modes, file structure |
+| `/setup-deck` | Interviews brand identity → writes tokens, typography, motion, color-modes, file structure |
 | `/setup-templates` | Profiles existing Figma slide-masters + registers 13 built-in templates |
 | `/brief` | Defines problem, audience, single CTA, duration, tone |
 | `/research` | Researcher agent (WebSearch + your docs) → cited claim map in `research.json` |
@@ -100,7 +100,7 @@ Then open your Figma Slides file and run the **Desktop Bridge** plugin (Plugins 
 
 ```
 Step 1:  Open a Figma Slides file. Run the Desktop Bridge plugin.
-Step 2:  /setup
+Step 2:  /setup-deck
          → Interviews brand identity, writes design-system/*,
            scaffolds title / section / closing slides.
 Step 3:  /setup-templates
@@ -165,7 +165,7 @@ Step 7:  /image → /motion → /notes → /rehearse → /handoff
 
 ```
 Phase 1: FOUNDATION → SKELETON DECK
-  /setup → /setup-templates → /brief → /research → /outline → /arc → /style-preview
+  /setup-deck → /setup-templates → /brief → /research → /outline → /arc → /style-preview
     → /plan-deck → /build
   End state: structurally complete skeleton deck in Figma Slides
              (action titles, arc beats, brand tokens, template-correct layouts)
@@ -179,7 +179,7 @@ Skills read from and write to three local directories:
 
 | Directory | What's in it | Created by |
 |---|---|---|
-| `design-system/` | Brand, tokens, typography, motion, color-modes, templates, decisions | `/setup`, `/setup-templates` + all skills (decisions log) |
+| `design-system/` | Brand, tokens, typography, motion, color-modes, templates, decisions | `/setup-deck`, `/setup-templates` + all skills (decisions log) |
 | `plans/<deck-slug>/` | Per-deck: brief, research, outline, arc, deck.json, slides/, notes, qa, handoff bundle | `/brief`, `/research`, `/outline`, `/arc`, `/plan-deck`, `/build`, `/notes`, `/handoff` |
 | `benchmarks/` | Test cases, rubrics, results | `/eval-skills` (v0.2) |
 

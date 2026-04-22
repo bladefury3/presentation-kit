@@ -16,7 +16,7 @@ Canned brief: **"10-slide Series B pitch for Lumen, a fictional enterprise time-
 
 ## Phase 1 — Foundation → Skeleton Deck (after Phase 1 ships)
 
-- [ ] 8. `/setup` — Interviews brand, writes `design-system/{brand,tokens,typography,motion,color-modes}.json` + `content-voice.md` + `slide-file-structure.md`. Figma file has title / section-divider / closing scaffolds.
+- [ ] 8. `/setup-deck` — Interviews brand, writes `design-system/{brand,tokens,typography,motion,color-modes}.json` + `content-voice.md` + `slide-file-structure.md`. Figma file has title / section-divider / closing scaffolds.
 - [ ] 9. `/setup-templates` — `design-system/templates/index.json` lists ≥13 templates. Each template JSON has slot definitions, auto-layout config, token bindings.
 - [ ] 10. `/brief` — `plans/lumen/brief.md` has HMW, audience, single CTA, duration, tone.
 - [ ] 11. `/research` — `plans/lumen/research.json` has ≥20 claim entries with URL/quote/retrievedAt per claim.

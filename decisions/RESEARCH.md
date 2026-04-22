@@ -59,9 +59,9 @@ Why: Official Figma MCP does not support Slides (as of 2026-04). `figma-console`
 
 ### Open questions (resolve during Phase 1-2)
 
-- **Default image provider:** OpenAI `gpt-image-1` vs. Gemini Imagen. Pluggable; picks one at `/setup`.
+- **Default image provider:** OpenAI `gpt-image-1` vs. Gemini Imagen. Pluggable; picks one at `/setup-deck`.
 - **GitHub repo visibility:** private (default until MVP) vs. public (like design-kit).
-- **Exact font defaults:** currently spec'd as Inter + Playfair Display; confirm with user at first `/setup`.
+- **Exact font defaults:** currently spec'd as Inter + Playfair Display; confirm with user at first `/setup-deck`.
 - **gstack integration depth:** design-kit has `.gstack/` logs; should presentation-kit wire gstack skills (e.g. `/browse` for sourcing images, `/checkpoint`) into its dev loop? Probably yes, confirm during usage.
 
 ### References

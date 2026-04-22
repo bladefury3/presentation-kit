@@ -67,7 +67,12 @@ for skill_file in $SKILL_FILES; do
   done
 
   # --- Check allowed-tools entries are valid ---
-  tools=$(echo "$frontmatter" | awk '/^allowed-tools:/{found=1; next} found && /^[[:space:]]+-/{sub(/^[[:space:]]+-[[:space:]]*/, ""); print} found && !/^[[:space:]]+-/{found=0}')
+  # Use a tmp var to avoid the sub()-mutates-$0 then-reset bug.
+  tools=$(echo "$frontmatter" | awk '
+    /^allowed-tools:/ { found=1; next }
+    found && /^[[:space:]]+-/ { line=$0; sub(/^[[:space:]]+-[[:space:]]*/, "", line); print line; next }
+    found && /^[^[:space:]-]/ { found=0 }
+  ')
 
   if [ -z "$tools" ]; then
     fail "$skill_dir" "allowed-tools list is empty"
@@ -77,7 +82,7 @@ for skill_file in $SKILL_FILES; do
       [ -z "$tool" ] && continue
       case "$tool" in
         mcp__figma-console__figma_*|mcp__figma-console__figjam_*) ;;
-        Read|Write|Edit|Bash|AskUserQuestion|Agent|WebSearch|WebFetch) ;;
+        Read|Write|Edit|Bash|Glob|Grep|AskUserQuestion|Agent|WebSearch|WebFetch) ;;
         *) bad_tools="${bad_tools}${tool}, " ;;
       esac
     done <<< "$tools"

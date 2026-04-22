@@ -18,7 +18,7 @@ Skills for turning a brief into a defensible Figma Slides deck — research → 
 ```
 presentation-kit/
 ├── design-system/                    # Extracted + shipped artifacts
-│   ├── brand.json                    #   Identity (written by /setup)
+│   ├── brand.json                    #   Identity (written by /setup-deck)
 │   ├── tokens.json                   #   Color / typography / spacing / radii / shadows
 │   ├── typography.json               #   Role mapping: section label / heading / body / caption / accent
 │   ├── motion.json                   #   Durations, easings, transitions, reduced-motion policy
@@ -100,7 +100,7 @@ presentation-kit/
 │   └── results/
 │
 ├── <skill-dir>/                      # 14 skill directories, each with SKILL.md (authored in Phase 1+)
-│   ├── setup/
+│   ├── setup-deck/
 │   ├── setup-templates/
 │   ├── brief/
 │   ├── research/
@@ -252,7 +252,7 @@ Presentation Kit gives you slash commands in your AI tool that build, audit, and
 
 ```
 Step 1: Open a Figma Slides file. Run the Desktop Bridge plugin.
-Step 2: In your AI tool, run /setup.
+Step 2: In your AI tool, run /setup-deck.
         → Interviews brand identity, writes tokens / typography / motion,
           scaffolds the file with title / section / closing slides.
 Step 3: /setup-templates.
