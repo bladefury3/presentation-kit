@@ -21,6 +21,7 @@ allowed-tools:
   - mcp__figma-console__figma_focus_slide
   - mcp__figma-console__figma_set_slide_background
   - mcp__figma-console__figma_set_slide_transition
+  - mcp__figma-console__figma_set_slides_view_mode
   - mcp__figma-console__figma_add_text_to_slide
   - mcp__figma-console__figma_add_shape_to_slide
   - mcp__figma-console__figma_set_text

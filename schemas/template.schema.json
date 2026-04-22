@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "presentation-kit/template/v1",
+  "$id": "https://presentation-kit.bladefury3.io/schema/template/v1",
   "title": "Presentation Kit Template",
   "description": "Slide template. Data-driven — no per-template code. The slot-fill engine in build-helpers/template-instantiate.js reads this to produce Plugin API ops.",
   "type": "object",

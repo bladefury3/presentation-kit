@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "presentation-kit/research/v1",
+  "$id": "https://presentation-kit.bladefury3.io/schema/research/v1",
   "title": "Presentation Kit Research",
   "description": "Cited claim map. Produced by /research. Referenced from slide body copy and speaker notes via sources[] entries like 'research.json#claim-17'.",
   "type": "object",

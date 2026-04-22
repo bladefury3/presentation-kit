@@ -65,7 +65,7 @@ See `/image --generate` and `build-helpers/image-provider.js`. External provider
 - **Gemini Imagen** — faster, good for layered decompositions
 - **Replicate** — Stable Diffusion variants, tiled generation for layered images
 
-Provider choice lives in `design-system/image-provider.json`. Set once at `/setup`.
+Provider choice lives in `design-system/image-provider.json`. Set once at `/setup-deck`.
 
 ### Layered image decomposition (`/image --layered`)
 

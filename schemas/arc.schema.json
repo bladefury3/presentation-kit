@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "presentation-kit/arc/v1",
+  "$id": "https://presentation-kit.bladefury3.io/schema/arc/v1",
   "title": "Presentation Kit Arc",
   "description": "Narrative arc mapped to slide beats. Produced by /arc, consumed by /plan-deck and /narrative-auditor.",
   "type": "object",
@@ -43,8 +43,8 @@
       "items": { "type": "number", "minimum": 0, "maximum": 1 }
     },
     "constraints": {
-      "type": "object",
-      "description": "Hard constraints enforced by the arc. For 10-20-30: slide count = 10, duration ≤ 20 min, min font size = 30pt.",
+      "type": ["object", "null"],
+      "description": "Hard constraints enforced by the arc. For 10-20-30: slide count = 10, duration ≤ 20 min, min font size = 30pt. Null for arcs without hard constraints.",
       "properties": {
         "slideCount": { "type": "integer" },
         "minFontPt": { "type": "integer" },

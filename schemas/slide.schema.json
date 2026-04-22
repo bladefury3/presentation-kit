@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "presentation-kit/slide/v1",
+  "$id": "https://presentation-kit.bladefury3.io/schema/slide/v1",
   "title": "Presentation Kit Slide",
   "description": "Per-slide spec. Produced by /plan-deck, consumed by /build, mutated by /revise-deck, /image, /motion, /notes.",
   "type": "object",
@@ -33,8 +33,8 @@
       "additionalProperties": { "type": "string" }
     },
     "notes": {
-      "type": "string",
-      "description": "Speaker notes. Applied via figma_execute → slide.speakerNotes."
+      "type": ["string", "null"],
+      "description": "Speaker notes. Applied via figma_execute → slide.speakerNotes. Null until /notes runs."
     },
     "transition": {
       "type": "object",

@@ -24,6 +24,7 @@ allowed-tools:
   - mcp__figma-console__figma_capture_screenshot
   - mcp__figma-console__figma_navigate
   - mcp__figma-console__figma_focus_slide
+  - mcp__figma-console__figma_set_slides_view_mode
   - Read
   - Write
   - Edit

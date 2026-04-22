@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "presentation-kit/tokens/v1",
+  "$id": "https://presentation-kit.bladefury3.io/schema/tokens/v1",
   "title": "Presentation Kit Tokens",
   "description": "Design tokens for a presentation. W3C Design Tokens format with Figma extensions. Ported from design-kit.",
   "type": "object",

@@ -112,7 +112,7 @@ Enforced by `/layout-pack` inside `/build`. Overflow gets fixed pre-build, not p
 
 ## Font name lookup table (starting point)
 
-For brand setup. `/setup` asks the user their preferred font family and verifies availability.
+For brand setup. `/setup-deck` asks the user their preferred font family and verifies availability.
 
 **Common Figma-available fonts:**
 - Sans: `Inter`, `DM Sans`, `SF Pro Text`, `IBM Plex Sans`
@@ -120,4 +120,4 @@ For brand setup. `/setup` asks the user their preferred font family and verifies
 - Monospace: `JetBrains Mono`, `IBM Plex Mono`, `Space Mono`, `Inter Mono`
 - Typical weight styles: `Regular`, `Medium`, `SemiBold`, `Bold`, `Light`, `ExtraLight`
 
-If the user's preferred font is missing, `/setup` prompts for a fallback from the above list, and writes the chosen font to `design-system/typography.json`.
+If the user's preferred font is missing, `/setup-deck` prompts for a fallback from the above list, and writes the chosen font to `design-system/typography.json`.

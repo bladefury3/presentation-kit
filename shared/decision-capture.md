@@ -49,7 +49,7 @@ Only capture **decisions that future sessions need to know about.** Not every ti
 
 | Skill | Capture when… |
 |---|---|
-| `/setup` | Recording the foundational brand, font, color, and voice choices on first run |
+| `/setup-deck` | Recording the foundational brand, font, color, and voice choices on first run |
 | `/brief` | Clarifying audience, single CTA, or scope that overrides an obvious default |
 | `/outline` | Skipping an obvious slide (e.g. "no Team slide because audience knows us") |
 | `/arc` | Choosing arc type when multiple could work ("SCQA over Narrative because decision-first audience") |

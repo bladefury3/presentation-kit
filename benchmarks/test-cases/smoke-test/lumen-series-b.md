@@ -17,7 +17,7 @@ Key claim: "We killed the trial. Churn fell 40%."
 
 ## Expected artifacts by phase
 
-### After `/setup`
+### After `/setup-deck`
 - `design-system/brand.json` with name=Lumen, audience voice, warm-neutral palette
 - `design-system/tokens.json` with editorial-serif typography roles
 - `design-system/motion.json` with default transitions (dissolve + smart-animate for beats)
@@ -96,6 +96,6 @@ Composite ≥ 8/10 gates pass.
 
 ## Known gotchas
 
-- Figma Slides may not have all fonts loaded on first install — `/setup` must validate Playfair + Inter availability.
+- Figma Slides may not have all fonts loaded on first install — `/setup-deck` must validate Playfair + Inter availability.
 - External image provider may rate-limit; 10 images may take 5–10 min.
 - Speaker-notes escape hatch (Plugin API) must be confirmed on day one via the smoke-test script.

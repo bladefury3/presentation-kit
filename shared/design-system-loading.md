@@ -6,7 +6,7 @@ Standard fallback for loading presentation-kit artifacts. Every skill that reads
 
 Read these from the project directory before any decision:
 
-- `design-system/brand.json` — identity, audience voice, logos (written by `/setup`)
+- `design-system/brand.json` — identity, audience voice, logos (written by `/setup-deck`)
 - `design-system/content-voice.md` — tone, word budgets, banned phrases
 - `design-system/decisions.md` — append-only log of prior decisions (see `shared/decision-capture.md`)
 - `plans/<deck>/brief.md` — problem, audience, CTA, duration (if working on a specific deck)
@@ -20,7 +20,7 @@ If `brief.md` exists, use it to:
 - Apply the duration budget to slide count, speaker-notes timing, motion density
 - Default to the brief's tone unless overridden
 
-If these files are missing, proceed — they are optional enrichment. Suggest running the appropriate skill (`/setup`, `/brief`) if the user would benefit from persistent context.
+If these files are missing, proceed — they are optional enrichment. Suggest running the appropriate skill (`/setup-deck`, `/brief`) if the user would benefit from persistent context.
 
 ## Tier 1: Local JSON (fast, pre-extracted)
 
@@ -59,7 +59,7 @@ Only if Tier 2 also fails:
 > "Couldn't read design system data from Figma either. I can proceed with default typography and tokens, but the deck won't match any brand identity. Want to:
 >
 > A) Proceed with defaults (dark theme, Inter + Playfair)
-> B) Run `/setup` first to configure brand + tokens (recommended)
+> B) Run `/setup-deck` first to configure brand + tokens (recommended)
 >
 > **STOP.** Wait for response before continuing.
 
